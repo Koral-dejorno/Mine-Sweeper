@@ -1,0 +1,21 @@
+body {
+  background-color: rgb(255, 242, 242);
+  text-align: center;
+}
+
+h1 {
+  color: hsla(0, 0%, 0%, 0.9);
+}
+
+.board {
+  margin-top: 250px;
+  margin-left: 780px;
+ 
+}
+
+.cell {
+  background-color: rgb(143, 137, 137);
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
