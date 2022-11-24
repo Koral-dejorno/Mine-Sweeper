@@ -6,7 +6,7 @@ const DEAD = '😷'
 const WIN = '😎'
 const EMPTY = ''
 
-var gBoard = { minesAroundCount: 4, isShown: true, isMine: false, isMarked: true }
+var gBoard = { minesAroundCount: null, isShown: false, isMine: false, isMarked: false }
 
 var gLevel = {
     size: 4,
@@ -26,7 +26,6 @@ function initGame() {
     console.log(gBoard)
     renderBoard(gBoard)
     countNegs()
-
 }
 
 function buildBoard() {
@@ -41,7 +40,7 @@ function buildBoard() {
     }
 
     board[1][1].isMine = board[3][0].isMine = true
-
+    
     return board
 }
 
@@ -49,9 +48,5 @@ function buildBoard() {
 
 
 
-function cellClicked(elCell, i, j) {
-
-
-}
 
 

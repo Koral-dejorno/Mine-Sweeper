@@ -1,25 +1,24 @@
 body {
   background-color: rgb(255, 242, 242);
-  text-align: center;
+  background-image: url(/img/Minesweeper-Mania-512x384-1.jpg);
 }
+
 
 h1 {
   color: hsla(0, 0%, 0%, 0.9);
-
+  /* margin-left: 400px ; */
 }
 
 .board {
-  margin-top: 100px;
-  margin-left: 300px;
-
-
-
- 
+  display: inline block;
+  margin: 200px 400px;
+  
 }
 
 .cell {
   background-color: rgb(143, 137, 137);
+  text-align: center;
   width: 50px;
   height: 50px;
-    cursor: pointer;
+  cursor: pointer;
 }

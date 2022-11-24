@@ -10,9 +10,10 @@ function renderBoard(board) {
             const negs = setMinesNegsCount(gBoard, i, j)
 
             const className = `cell cell-${i}-${j}`
-            // var randNum = getRandomIntInt(0,board.length)
+
             const cell = (board[i][j].isMine) ? `${MINE}` : `${negs}`
-            strHTML += `<td class="${className}" onclick="cellClicked(this${i},${j})">${cell}</td>`
+
+            strHTML += `<td class="${className}" onclick="cellClicked(this,${i},${j})">${cell}</td>`
         }
         strHTML += '</tr>'
     }
@@ -36,8 +37,8 @@ function setMinesNegsCount(board, rowIdx, colIdx) {
         }
     }
     return negsCount
-
 }
+
 function countNegs() {
 
     for (var i = 0; i < gBoard.length; i++) {
@@ -47,15 +48,36 @@ function countNegs() {
             currCell.minesAroundCount = setMinesNegsCount(gBoard, i, j)
         }
     }
+}
 
-    
+function cellClicked(elCell, i, j) {
+    gBoard.isShown = false
+
+    for (var i = 0; i < gBoard.length; i++) {
+        for (var j = 0; j < gBoard.length; j++) {
+
+            var currCell = gBoard[i][j]
+
+        }
+    }
+    if (gBoard.isShown === false) {
+        currCell = ''
+    } else {
+        elCell.inn
+    }
+
+
 }
 
 
 
 
 
-
+function renderCell(location, value) {
+    const cellSelector = '.' + getClassName(location) // cell-i-j
+    const elCell = document.querySelector(cellSelector)
+    elCell.innerHTML = value
+}
 
 
 
