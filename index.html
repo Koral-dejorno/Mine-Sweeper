@@ -9,11 +9,17 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body onload="initGame()">
+<body onload="onInitGame()">
     <h1>Mine Sweeper</h1>
-    
-    <div class="board" ></div>
 
+
+    <h2 class="timer"><span>00:00</span></h2>
+    <button onclick="restartGame(this)" class="btn">😄</button>
+    <div class="board">
+    </div>
+<button onclick="beginner(this)" class="game">Beginner</button>
+<button onclick="Intermediate(this)" class="game">Intermediate</button>
+<button class="game">Expert</button>
     <script src="js/utils.js"></script>
     <script src="js/game.js"></script>
 </body>

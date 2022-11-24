@@ -6,16 +6,9 @@ function renderBoard(board) {
 
         strHTML += '<tr>'
         for (var j = 0; j < board[0].length; j++) {
-            // var currCell = board[i][j]
-
 
 
             const className = `cell cell-${i}-${j}`
-
-            // const cell = (board[i][j].isMine) ? `${MINE}` : `${negs}`
-            // if (board.isShown === true) cell
-
-
 
             strHTML += `<td class="${className}" oncontextmenu="cellMarked(event, ${i}, ${j})" onclick="cellClicked(this, ${i},${j})"></td>`
         }
@@ -57,18 +50,22 @@ function countNegs() {
 function cellMarked(ev, i, j) {
     ev.preventDefault()
     console.log('i,j:', i, j)
+
+    const cell = gBoard[i][j]
+    cell.isMarkes = true
+
+    renderCell({ i, j }, FLAG)
 }
+
+
 function cellClicked(elCell, i, j) {
-
-    // console.log('i,j:', i,j)
-    console.log('gBoard[i][j]:', gBoard[i][j])
-
     const cell = gBoard[i][j]
     cell.isShown = true
 
     const cellContent = (cell.isMine) ? MINE : cell.minesAroundCount
 
     renderCell({ i, j }, cellContent)
+    timer()
 }
 
 

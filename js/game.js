@@ -6,7 +6,8 @@ const DEAD = '😷'
 const WIN = '😎'
 const EMPTY = ''
 
-var gBoard 
+var gBoard
+var gTimerInterval
 
 var gLevel = {
     size: 4,
@@ -21,12 +22,11 @@ var gGame = {
 }
 
 
-function initGame() {
+function onInitGame() {
     gBoard = buildBoard()
     console.log(gBoard)
     countNegs()
     renderBoard(gBoard)
-
 }
 
 function buildBoard() {
@@ -41,13 +41,43 @@ function buildBoard() {
     }
 
     board[1][1].isMine = board[3][0].isMine = true
-    
+
     return board
 }
 
 
 
+function timer() {
+    var timer = document.querySelector('.timer span')
+    var start = Date.now()
+
+    gTimerInterval = setInterval(function () {
+        var currTs = Date.now()
+        var secs = parseInt((currTs - start) / 1000)
+        var ms = (currTs - start) - secs * 1000
+        ms = '000' + ms
+        ms = ms.substring(ms.length - 2, ms.length)
+
+        timer.innerText = `\n ${secs}:${ms}`
+    }, 100)
+}
 
 
+function restartGame(elBtn) {
+    onInitGame()
+}
 
 
+function beginner(elBtn){
+    gLevel = {
+        size: 4,
+        mines: 2
+    }
+}
+
+function Intermediate(elBtn){
+    gLevel = {
+        size: 8,
+        mines: 14
+    }
+}

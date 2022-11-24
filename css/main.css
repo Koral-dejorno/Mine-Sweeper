@@ -3,7 +3,6 @@ body {
   /* background-image: url(/img/download.jpg); */
 }
 
-
 h1 {
   color: hsla(0, 0%, 0%, 0.9);
   /* margin-left: 400px ; */
@@ -11,8 +10,9 @@ h1 {
 
 .board {
   display: inline block;
+  position: absolute;
+
   /* margin: 200px 400px; */
-  
 }
 
 .cell {
@@ -20,5 +20,26 @@ h1 {
   text-align: center;
   width: 50px;
   height: 50px;
+  cursor: pointer;
+}
+
+.timer {
+  width: 60px;
+  font-size: 20px;
+  color: red;
+  background-color: rgb(21, 21, 21);
+  /* padding: 8px; */
+  text-align: center;
+}
+
+.btn {
+  margin-left: 100px;
+  cursor: pointer;
+}
+
+.game {
+  border-radius: 20px;
+  background-color: rgb(154, 149, 149);
+  color: white;
   cursor: pointer;
 }
