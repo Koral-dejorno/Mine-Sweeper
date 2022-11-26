@@ -12,14 +12,18 @@
 <body onload="onInitGame()">
     <h1>Mine Sweeper</h1>
 
+    <button class="restart" onclick="onInitGame()">😄</button>
+    <div class="time">00:00</div>
+    <div class="board"></div>
 
-    <h2 class="timer"><span>00:00</span></h2>
-    <button onclick="restartGame(this)" class="btn">😄</button>
-    <div class="board">
-    </div>
-<button onclick="beginner(this)" class="game">Beginner</button>
-<button onclick="Intermediate(this)" class="game">Intermediate</button>
-<button class="game">Expert</button>
+
+    <button onclick="onClickLevel(4,2)" class="game">Beginner</button>
+    <button onclick="onClickLevel(8,14)" class="game">Intermediate</button>
+    <button onclick="onClickLevel(12,32)" class="game">Expert</button>
+
+
+
+<p class="by">By Koral Dejorno</p>
     <script src="js/utils.js"></script>
     <script src="js/game.js"></script>
 </body>

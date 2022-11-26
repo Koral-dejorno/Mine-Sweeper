@@ -27,57 +27,32 @@ function onInitGame() {
     console.log(gBoard)
     countNegs()
     renderBoard(gBoard)
+
+
 }
 
-function buildBoard() {
-    var size = gLevel.size
+function cellClicked(elCell, i, j) {
+    timer()
+    getRandomMines(gLevel.mines, i, j)
+    countNegs()
+    const cell = gBoard[i][j]
+    cell.isShown = true
 
-    const board = []
-    for (var i = 0; i < size; i++) {
-        board[i] = []
-        for (var j = 0; j < size; j++) {
-            board[i][j] = { minesAroundCount: null, isShown: false, isMine: false, isMarked: false }
-        }
-    }
+    const cellContent = (cell.isMine) ? MINE : cell.minesAroundCount
 
-    board[1][1].isMine = board[3][0].isMine = true
-
-    return board
-}
-
-
-
-function timer() {
-    var timer = document.querySelector('.timer span')
-    var start = Date.now()
-
-    gTimerInterval = setInterval(function () {
-        var currTs = Date.now()
-        var secs = parseInt((currTs - start) / 1000)
-        var ms = (currTs - start) - secs * 1000
-        ms = '000' + ms
-        ms = ms.substring(ms.length - 2, ms.length)
-
-        timer.innerText = `\n ${secs}:${ms}`
-    }, 100)
+    renderCell({ i, j }, cellContent)
 }
 
 
 function restartGame(elBtn) {
     onInitGame()
+
 }
 
 
-function beginner(elBtn){
-    gLevel = {
-        size: 4,
-        mines: 2
-    }
-}
-
-function Intermediate(elBtn){
-    gLevel = {
-        size: 8,
-        mines: 14
-    }
+function onClickLevel(size = 4 , mines = 2) {
+    gLevel.size = size
+    gLevel.mines = mines
+    clearInterval(gTimerInterval)
+    onInitGame()
 }

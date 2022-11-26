@@ -1,35 +1,68 @@
 body {
   background-color: rgb(255, 242, 242);
-  /* background-image: url(/img/download.jpg); */
+  text-align: center;
 }
 
 h1 {
   color: hsla(0, 0%, 0%, 0.9);
-  /* margin-left: 400px ; */
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .board {
-  display: inline block;
-  position: absolute;
+  /* height: 200px; */
+  /* width: 200px; */
+  border: 10px solid darkgray;
+  background-color: lightgray;
+  display: inline-block;
 
-  /* margin: 200px 400px; */
+  margin: 0 auto;
+  /* display: flex;  */
+   /* flex-wrap: wrap; */
+}
+
+.x1 {
+  color: blue;
+}
+.x2 {
+  color: green;
+}
+.x3 {
+  color: red;
+}
+.x4 {
+  color: navy;
+}
+.x5 {
+  color: brown;
+}
+.x6 {
+  color: teal;
+}
+.x7 {
+  color: black;
+}
+.x8 {
+  color: gray;
 }
 
 .cell {
   background-color: rgb(143, 137, 137);
   text-align: center;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+  border: 1px black solid;
+
 }
 
-.timer {
+.time {
   width: 60px;
   font-size: 20px;
   color: red;
   background-color: rgb(21, 21, 21);
-  /* padding: 8px; */
-  text-align: center;
+  margin-bottom: 10px;
+  display: inline-block;
 }
 
 .btn {
@@ -42,4 +75,10 @@ h1 {
   background-color: rgb(154, 149, 149);
   color: white;
   cursor: pointer;
+}
+
+
+.by{
+  margin-bottom: 0;
+  margin-left: 0;
 }

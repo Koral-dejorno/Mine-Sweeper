@@ -20,6 +20,19 @@ function renderBoard(board) {
     elContainer.innerHTML = strHTML
 }
 
+function buildBoard() {
+    var size = gLevel.size
+
+    const board = []
+    for (var i = 0; i < size; i++) {
+        board[i] = []
+        for (var j = 0; j < size; j++) {
+            board[i][j] = { minesAroundCount: null, isShown: false, isMine: false, isMarked: false }
+        }
+    }
+    return board
+}
+
 
 function setMinesNegsCount(board, rowIdx, colIdx) {
     var negsCount = 0
@@ -58,15 +71,15 @@ function cellMarked(ev, i, j) {
 }
 
 
-function cellClicked(elCell, i, j) {
-    const cell = gBoard[i][j]
-    cell.isShown = true
-
-    const cellContent = (cell.isMine) ? MINE : cell.minesAroundCount
-
-    renderCell({ i, j }, cellContent)
-    timer()
+function getRandomMines(minesCount, i, j) {
+    for (var i = 0; i < minesCount; i++) {
+        var i = getRandomInt(0, gLevel.size)
+        var j = getRandomInt(0, gLevel.size)
+      gBoard[i][j].isMine = true
+    }
 }
+
+
 
 
 
@@ -83,10 +96,21 @@ function getClassName(location) {
 }
 
 
+function timer() {
+    gStartTime = Date.now()
+    gTimeInterval = setInterval(() => {
+        const seconds = (Date.now() - gStartTime) / 1000
+        var elTime = document.querySelector('.time')
+        elTime.innerText = seconds.toFixed(3)
+    }, 1)
+}
 
 
-
-
+function getRandomInt(min, max) {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min) + min)
+}
 
 
 
